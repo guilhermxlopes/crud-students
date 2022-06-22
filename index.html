@@ -26,27 +26,27 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title">Modal title</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" required></button>
             </div>
             <div class="modal-body">
-              <form class="register form">
+              <form class="register">
                 <div class="mb-3">
                   <label for="name" class="form-label" id="name">Name:</label>
-                  <input type="name" class="form-control" id="name" aria-describedby="name" placeholder="John Smith" />
+                  <input type="name" class="form-control" id="f-name" data-index="new" aria-describedby="name" placeholder="John Smith" required />
                 </div>
                 <div class="mb-3">
                   <label for="GR" class="form-label">General Register:</label>
-                  <input type="number" class="form-control" id="GR" placeholder="XXXXYYYY" />
+                  <input type="number" class="form-control" id="f-gr" placeholder="XXXXYYYY" required />
                 </div>
                 <div class="mb-3">
                   <label for="birthdate" class="form-label">Birthdate:</label>
-                  <input type="date" class="form-control" id="birthdate" placeholder="01/01/1900" />
+                  <input type="date" class="form-control" id="f-birthdate" placeholder="01/01/1900" required />
                 </div>
                 <div class="mb-3">
                   <label for="email" class="form-label">Email:</label>
-                  <input type="email" class="form-control" id="email" placeholder="johnsmith@gmail.com" />
+                  <input type="email" class="form-control" id="f-email" placeholder="johnsmith@gmail.com" required />
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" id="submit" class="btn btn-primary">Submit</button>
               </form>
             </div>
           </div>
