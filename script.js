@@ -60,4 +60,7 @@ const createRow = (student, index) => {
   document.querySelector("#tableStudents>tbody tr");
 };
 
-const updateTable = () => {};
+const updateTable = () => {
+  const dataStudent = readStudent();
+  dataStudent.forEach(createRow);
+};
