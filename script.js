@@ -8,7 +8,7 @@ const studentTemp = {
   email: "guilhermxlopes@gmail.com",
 };
 
-///////////////////////////////// CREATE STUDENT
+////////////////////////////////////////////////////////////////// CREATE STUDENT
 const createStudent = (student) => {
   const dataStudent = getLocalStorage();
   dataStudent.push(student);
@@ -39,3 +39,13 @@ const saveStudent = () => {
 // BUTTON TRIGGER
 document.getElementById("submit").addEventListener("click", saveStudent);
 document.getElementById("submit").addEventListener("click", console.log(saveStudent));
+
+////////////////////////////////////////////////////////////////// READ STUDENT
+const readStudent = () => getLocalStorage();
+
+////////////////////////////////////////////////////////////////// UPDATE STUDENT
+const updateStudent = (index, client) => {
+  const dataStudent = readStudent();
+  dataStudent[index] = student;
+  setLocalStorage(dataStudent);
+};
