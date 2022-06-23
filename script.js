@@ -32,6 +32,7 @@ const saveStudent = () => {
     const index = document.getElementById("f-name").dataset.index;
     if (index == "new") {
       createStudent(student);
+      updateTable();
     }
   }
 };
@@ -44,7 +45,7 @@ document.getElementById("submit").addEventListener("click", console.log(saveStud
 const readStudent = () => getLocalStorage();
 
 ////////////////////////////////////////////////////////////////// UPDATE STUDENT
-const updateStudent = (index, client) => {
+const updateStudent = (index, student) => {
   const dataStudent = readStudent();
   dataStudent[index] = student;
   setLocalStorage(dataStudent);
