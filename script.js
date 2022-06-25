@@ -45,7 +45,10 @@ const createRow = (student) => {
   <td>${student.name}</td>
   <td>${student.gr}</td>
   <td>${student.birthdate}</td>
-  <td>${student.email}</td>`;
+  <td>${student.email}</td>
+  <td><button class=" btn btn-outline-secondary btn-sm"><i class="bi bi-trash"></i></button>
+  <button class=" btn btn-outline-secondary btn-sm"><i class="bi bi-pencil-square"></i></button></td>`;
+
   document.querySelector("tbody").appendChild(newRow);
 };
 
