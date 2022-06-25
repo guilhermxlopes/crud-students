@@ -17,7 +17,7 @@ const createStudent = (student) => {
 
 // CHECK IF FORMS IS COMPLETED
 const isCompletedFields = () => {
-  return document.querySelector("form").reportValidity(); // retorna verdadeiro/true com todos os requisitos do HTML cumpridos
+  return document.querySelector("form").reportValidity(); // retorna verdadeiro/false com todos os requisitos do HTML cumpridos
 };
 
 // SAVE STUDENT
@@ -30,16 +30,14 @@ const saveStudent = () => {
       email: document.getElementById("f-email").value,
     };
     const index = document.getElementById("f-name").dataset.index;
-    if (index == "new") {
-      createStudent(student);
-      updateTable();
-    }
+
+    createStudent(student);
+    updateTable();
   }
 };
 
 // BUTTON TRIGGER
 document.getElementById("submit").addEventListener("click", saveStudent);
-document.getElementById("submit").addEventListener("click", console.log(saveStudent));
 
 ////////////////////////////////////////////////////////////////// READ STUDENT
 const readStudent = () => getLocalStorage();
@@ -58,7 +56,7 @@ const createRow = (student, index) => {
   <td>${student.gr}</td>
   <td>${student.birthdate}</td>
   <td>${student.email}</td>`;
-  document.querySelector("#tableStudents>tbody tr");
+  document.querySelector("#tableStudents>tbody tr").appendChild(row);
 };
 
 const updateTable = () => {
