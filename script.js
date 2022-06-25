@@ -51,17 +51,19 @@ const updateStudent = (index, student) => {
   setLocalStorage(dataStudent);
 };
 
-const createRow = (student, index) => {
+const createRow = (student) => {
   const newRow = document.createElement("tr");
   newRow.innerHTML = `
   <td>${student.name}</td>
   <td>${student.gr}</td>
   <td>${student.birthdate}</td>
   <td>${student.email}</td>`;
-  document.querySelector("#tableStudents>tbody tr").appendChild(row);
+  document.querySelector("tbody").appendChild(newRow);
 };
 
 const updateTable = () => {
   const dataStudent = readStudent();
   dataStudent.forEach(createRow);
 };
+
+updateTable();
