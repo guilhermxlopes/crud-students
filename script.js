@@ -68,7 +68,7 @@ const updateStudent = (index, student) => {
 };
 
 const fillFieldsFromStudent = (student) => {
-  document.getElementById("fedit-name").value = "hahahah";
+  document.getElementById("fedit-name").value = student.name;
   document.getElementById("fedit-gr").value = student.gr;
   document.getElementById("fedit-birthdate").value = student.birthdate;
   document.getElementById("fedit-email").value = student.email;
@@ -82,7 +82,7 @@ const editStudent = (index) => {
 };
 
 const editDelete = (event) => {
-  if (event.target.type == "submit") {
+  if (event.target.type == "submit" || event.target.tagName == "I") {
     const [action, index] = event.target.id.split("-");
 
     if (action == "edit") {
