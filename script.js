@@ -1,3 +1,5 @@
+"use strict";
+
 const getLocalStorage = () => JSON.parse(localStorage.getItem("data_student")) ?? []; // get data from the localStorage
 const setLocalStorage = (dataStudent) => localStorage.setItem("data_student", JSON.stringify(dataStudent)); // set data to the localStorage
 
@@ -17,7 +19,7 @@ const createStudent = (student) => {
 
 // CHECK IF FORMS IS COMPLETED
 const isCompletedFields = () => {
-  return document.querySelector("form").reportValidity(); // retorna verdadeiro/false com todos os requisitos do HTML cumpridos
+  return document.querySelector("form").reportValidity(); // retorna verdadeiro/falso com todos os requisitos do HTML cumpridos
 };
 
 // SAVE STUDENT
@@ -56,12 +58,10 @@ const createRow = (student, index) => {
   <td>${student.gr}</td>
   <td>${student.birthdate}</td>
   <td>${student.email}</td>`;
-  document.querySelector("#tableStudents>tbody tr").appendChild(newRow);
+  document.querySelector("#tableStudents>tbody tr").appendChild(row);
 };
 
 const updateTable = () => {
   const dataStudent = readStudent();
   dataStudent.forEach(createRow);
 };
-
-updateTable();
