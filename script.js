@@ -61,6 +61,7 @@ updateTable();
 
 ////////////////////////////////////////////////////////////////// UPDATE STUDENT
 const updateStudent = (index, student) => {
+  // get the index from the array to change
   const dataStudent = readStudent();
   dataStudent[index] = student;
   setLocalStorage(dataStudent);
@@ -71,6 +72,12 @@ const fillFields = (student) => {
   document.getElementById("fedit-gr").value = student.gr;
   document.getElementById("fedit-birthdate").value = student.birthdate;
   document.getElementById("fedit-email").value = student.email;
+};
+
+const editStudent = (index) => {
+  const student = readStudent()[index];
+  student.index = index;
+  fillFields(student);
 };
 
 ////////////////////////////////////////////////////////////////// DELETE ALL STUDENTS
