@@ -66,6 +66,13 @@ const updateStudent = (index, student) => {
   setLocalStorage(dataStudent);
 };
 
+const fillFields = (student) => {
+  document.getElementById("fedit.name").value = student.name;
+  document.getElementById("fedit-gr").value = student.gr;
+  document.getElementById("fedit-birthdate").value = student.birthdate;
+  document.getElementById("fedit-email").value = student.email;
+};
+
 ////////////////////////////////////////////////////////////////// DELETE ALL STUDENTS
 const deleteAllStudents = () => {
   clearLocalStorage();
