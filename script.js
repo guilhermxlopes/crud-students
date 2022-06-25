@@ -39,15 +39,15 @@ document.getElementById("submit").addEventListener("click", saveStudent);
 const readStudent = () => getLocalStorage();
 
 // CREATE NEW ROWS FOR NEW STUDENTS
-const createRow = (student) => {
+const createRow = (student, index) => {
   const newRow = document.createElement("tr");
   newRow.innerHTML = `
   <td>${student.name}</td>
   <td>${student.gr}</td>
   <td>${student.birthdate}</td>
   <td>${student.email}</td>
-  <td><button class=" btn btn-outline-secondary btn-sm"><i class="bi bi-trash"></i></button>
-  <button class=" btn btn-outline-secondary btn-sm"><i class="bi bi-pencil-square"></i></button></td>`;
+  <td><button id="delete-${index}" class=" btn btn-outline-secondary btn-sm"><i class="bi bi-trash"></i></button>
+  <button id="edit-${index}" class=" btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modalEdit"><i class="bi bi-pencil-square"></i></button></td>`;
 
   document.querySelector("tbody").appendChild(newRow);
 };
@@ -67,17 +67,29 @@ const updateStudent = (index, student) => {
   setLocalStorage(dataStudent);
 };
 
-const fillFields = (student) => {
-  document.getElementById("fedit.name").value = student.name;
+const fillFieldsFromStudent = (student) => {
+  document.getElementById("fedit-name").value = "hahahah";
   document.getElementById("fedit-gr").value = student.gr;
   document.getElementById("fedit-birthdate").value = student.birthdate;
   document.getElementById("fedit-email").value = student.email;
+  document.getElementById("fedit-name").dataset.index = student.index;
 };
 
 const editStudent = (index) => {
   const student = readStudent()[index];
   student.index = index;
-  fillFields(student);
+  fillFieldsFromStudent(student);
+};
+
+const editDelete = (event) => {
+  if (event.target.type == "submit") {
+    const [action, index] = event.target.id.split("-");
+
+    if (action == "edit") {
+      editStudent(index);
+    }
+  }
+  console.log(event);
 };
 
 ////////////////////////////////////////////////////////////////// DELETE ALL STUDENTS
@@ -87,3 +99,4 @@ const deleteAllStudents = () => {
 };
 
 document.getElementById("deleteDatabase").addEventListener("click", deleteAllStudents);
+document.querySelector("#tableStudents>tbody").addEventListener("click", editDelete);
