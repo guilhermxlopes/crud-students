@@ -56,10 +56,12 @@ const createRow = (student, index) => {
   <td>${student.gr}</td>
   <td>${student.birthdate}</td>
   <td>${student.email}</td>`;
-  document.querySelector("#tableStudents>tbody tr").appendChild(row);
+  document.querySelector("#tableStudents>tbody tr").appendChild(newRow);
 };
 
 const updateTable = () => {
   const dataStudent = readStudent();
   dataStudent.forEach(createRow);
 };
+
+updateTable();
