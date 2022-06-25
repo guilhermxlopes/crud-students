@@ -19,15 +19,32 @@
       <button id="registerStudent" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegister">
         Register new student
       </button>
-      <button id="deleteStudents" class="btn btn-secondary">Delete all students</button>
+      <button id="deleteStudents" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteAll">
+        Delete all students
+      </button>
     </header>
     <content>
+      <div id="modalDeleteAll" class="modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Delete all students</h5>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label>Are you sure? This action is permanent.</label>
+              </div>
+              <button type="submit" id="deleteDatabase" class="btn btn-primary" data-bs-dismiss="modal">Delete</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div id="modalRegister" class="modal" tabindex="-1">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Modal title</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" required></button>
+              <h5 class="modal-title">Register a new student to the database</h5>
             </div>
             <div class="modal-body">
               <form class="register">
@@ -48,6 +65,7 @@
                   <input type="email" class="form-control" id="f-email" placeholder="johnsmith@gmail.com" required />
                 </div>
                 <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
               </form>
             </div>
           </div>

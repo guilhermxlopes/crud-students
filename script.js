@@ -2,13 +2,7 @@
 
 const getLocalStorage = () => JSON.parse(localStorage.getItem("data_student")) ?? []; // get data from the localStorage
 const setLocalStorage = (dataStudent) => localStorage.setItem("data_student", JSON.stringify(dataStudent)); // set data to the localStorage
-
-const studentTemp = {
-  name: "Guiaaalherme",
-  grr: "20000102",
-  birthdate: "20/01/1990",
-  email: "guilhermxlopes@gmail.com",
-};
+const clearLocalStorage = () => window.localStorage.clear();
 
 ////////////////////////////////////////////////////////////////// CREATE STUDENT
 const createStudent = (student) => {
@@ -44,13 +38,7 @@ document.getElementById("submit").addEventListener("click", saveStudent);
 ////////////////////////////////////////////////////////////////// READ STUDENT
 const readStudent = () => getLocalStorage();
 
-////////////////////////////////////////////////////////////////// UPDATE STUDENT
-const updateStudent = (index, student) => {
-  const dataStudent = readStudent();
-  dataStudent[index] = student;
-  setLocalStorage(dataStudent);
-};
-
+// CREATE NEW ROWS FOR NEW STUDENTS
 const createRow = (student) => {
   const newRow = document.createElement("tr");
   newRow.innerHTML = `
@@ -67,3 +55,18 @@ const updateTable = () => {
 };
 
 updateTable();
+
+////////////////////////////////////////////////////////////////// UPDATE STUDENT
+const updateStudent = (index, student) => {
+  const dataStudent = readStudent();
+  dataStudent[index] = student;
+  setLocalStorage(dataStudent);
+};
+
+////////////////////////////////////////////////////////////////// DELETE ALL STUDENTS
+const deleteAllStudents = () => {
+  clearLocalStorage();
+  location.reload();
+};
+
+document.getElementById("deleteDatabase").addEventListener("click", deleteAllStudents);
