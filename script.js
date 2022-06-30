@@ -47,7 +47,7 @@ const createRow = (student, index) => {
   <td>${student.birthdate}</td>
   <td>${student.email}</td>
   <td><button id="delete-${index}" class=" btn btn-outline-secondary btn-sm"><i class="bi bi-trash"></i></button>
-  <button id="edit-${index}" class=" btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modalEdit"><i class="bi bi-pencil-square"></i></button></td>`;
+  <button id="edit-${index}" class="editBtn btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modalEdit"><i class="bi bi-pencil-square"></i></button></td>`;
 
   document.querySelector("tbody").appendChild(newRow);
 };
@@ -81,15 +81,12 @@ const editStudent = (index) => {
   fillFieldsFromStudent(student);
 };
 
-const editDelete = (event) => {
-  if (event.target.type == "submit" || event.target.tagName == "I") {
-    const [action, index] = event.target.id.split("-");
-
-    if (action == "edit") {
-      editStudent(index);
-    }
-  }
+const editGet = (event) => {
   console.log(event);
+  const [action, index] = event.target.id.split("-");
+  if (action == "edit") {
+    editStudent(index);
+  }
 };
 
 ////////////////////////////////////////////////////////////////// DELETE ALL STUDENTS
@@ -98,5 +95,6 @@ const deleteAllStudents = () => {
   location.reload();
 };
 
+document.querySelector("#tableStudents>tbody").addEventListener("click", editGet);
+
 document.getElementById("deleteDatabase").addEventListener("click", deleteAllStudents);
-document.querySelector("#tableStudents>tbody").addEventListener("click", editDelete);
