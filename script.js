@@ -17,19 +17,32 @@ const isCompletedFields = () => {
 };
 
 // SAVE STUDENT
-const saveStudent = () => {
-  if (isCompletedFields()) {
-    const student = {
-      name: document.getElementById("f-name").value,
-      gr: document.getElementById("f-gr").value,
-      birthdate: document.getElementById("f-birthdate").value,
-      email: document.getElementById("f-email").value,
-    };
-    const index = document.getElementById("f-name").dataset.index;
-  } else {
-    updateStudent(index, student);
-    updateTable();
-  }
+const saveStudentRegister = () => {
+  const student = {
+    name: document.getElementById("f-name").value,
+    gr: document.getElementById("f-gr").value,
+    birthdate: document.getElementById("f-birthdate").value,
+    email: document.getElementById("f-email").value,
+  };
+
+  const index = document.getElementById("f-name").dataset.index;
+
+  createStudent(student);
+  updateTable();
+};
+
+const saveStudentEdit = () => {
+  const student = {
+    name: document.getElementById("fedit-name").value,
+    gr: document.getElementById("fedit-gr").value,
+    birthdate: document.getElementById("fedit-birthdate").value,
+    email: document.getElementById("fedit-email").value,
+  };
+
+  const index = document.getElementById("fedit-name").dataset.index;
+
+  updateStudent(index, student);
+  updateTable();
 };
 
 // BUTTON TRIGGER
@@ -51,8 +64,14 @@ const createRow = (student, index) => {
   document.querySelector("tbody").appendChild(newRow);
 };
 
+const clearTable = () => {
+  const rows = document.querySelectorAll("#tableStudents>tbody tr");
+  rows.forEach((row) => row.parentNode.removeChild(row));
+};
+
 const updateTable = () => {
   const dataStudent = readStudent();
+  clearTable();
   dataStudent.forEach(createRow);
 };
 
@@ -81,7 +100,6 @@ const editStudent = (index) => {
 };
 
 const editGet = (event) => {
-  console.log(event);
   const [action, index] = event.target.id.split("-");
   if (action == "edit") {
     editStudent(index);
@@ -98,6 +116,6 @@ document.querySelector("#tableStudents>tbody").addEventListener("click", editGet
 
 document.getElementById("deleteDatabase").addEventListener("click", deleteAllStudents);
 
-document.getElementById("submitEdit").addEventListener("click", saveStudent);
+document.getElementById("submitEdit").addEventListener("click", saveStudentEdit);
 
-document.getElementById("submitCreate").addEventListener("click", saveStudent);
+document.getElementById("submitCreate").addEventListener("click", saveStudentRegister);
