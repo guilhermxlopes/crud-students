@@ -26,14 +26,13 @@ const saveStudent = () => {
       email: document.getElementById("f-email").value,
     };
     const index = document.getElementById("f-name").dataset.index;
-
-    createStudent(student);
+  } else {
+    updateStudent(index, student);
     updateTable();
   }
 };
 
 // BUTTON TRIGGER
-document.getElementById("submit").addEventListener("click", saveStudent);
 
 ////////////////////////////////////////////////////////////////// READ STUDENT
 const readStudent = () => getLocalStorage();
@@ -98,3 +97,7 @@ const deleteAllStudents = () => {
 document.querySelector("#tableStudents>tbody").addEventListener("click", editGet);
 
 document.getElementById("deleteDatabase").addEventListener("click", deleteAllStudents);
+
+document.getElementById("submitEdit").addEventListener("click", saveStudent);
+
+document.getElementById("submitCreate").addEventListener("click", saveStudent);
