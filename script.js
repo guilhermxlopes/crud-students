@@ -58,8 +58,8 @@ const createRow = (student, index) => {
   <td>${student.gr}</td>
   <td>${student.birthdate}</td>
   <td>${student.email}</td>
-  <td><button id="delete-${index}" class=" btn btn-outline-secondary btn-sm"><i class="bi bi-trash"></i></button>
-  <button id="edit-${index}" class="editBtn btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modalEdit"><i class="bi bi-pencil-square"></i></button></td>`;
+  <td><button id="delete-${index}" class=" btn btn-outline-secondary btn-sm"><i id="delete-${index}" class="bi bi-trash"></i></button>
+  <button id="edit-${index}" class="editBtn btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modalEdit"><i id="edit-${index}" class="bi bi-pencil-square"></i></button></td>`;
 
   document.querySelector("tbody").appendChild(newRow);
 };
