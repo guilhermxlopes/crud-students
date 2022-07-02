@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+    <link rel="shortcut icon" href="./favicon/favicon.ico" type="image/x-icon" />
 
     <title>Students Manager</title>
   </head>
@@ -53,7 +54,16 @@
               <form class="register">
                 <div class="mb-3">
                   <label for="name" class="form-label">Name:</label>
-                  <input type="name" data-index="new" class="form-control" id="f-name" data-index="new" aria-describedby="name" placeholder="John Smith" required />
+                  <input
+                    type="name"
+                    data-index="new"
+                    class="form-control"
+                    id="f-name"
+                    data-index="new"
+                    aria-describedby="name"
+                    placeholder="John Smith"
+                    required
+                  />
                 </div>
                 <div class="mb-3">
                   <label for="GR" class="form-label">General Register:</label>
@@ -84,20 +94,20 @@
             <div class="modal-body">
               <form class="edit">
                 <div class="mb-3">
-                  <label for="name" class="form-label" >Name:</label>
-                  <input type="name" class="form-control" dataset="new" id="fedit-name" aria-describedby="name" placeholder="John Smith"  />
+                  <label for="name" class="form-label">Name:</label>
+                  <input type="name" class="form-control" dataset="new" id="fedit-name" aria-describedby="name" placeholder="John Smith" />
                 </div>
                 <div class="mb-3">
                   <label for="GR" class="form-label">General Register:</label>
-                  <input type="number" class="form-control" id="fedit-gr" placeholder="xxxxxxxxx"  />
+                  <input type="number" class="form-control" id="fedit-gr" placeholder="xxxxxxxxx" />
                 </div>
                 <div class="mb-3 datepicker-div" data-mdb-format="mm/dd/yyyy">
                   <label for="birthdate" class="form-label">Birthdate:</label>
-                  <input type="text" class="form-control" id="fedit-birthdate" placeholder="mm/dd/yyyy" onfocus="(this.type='date')"  />
+                  <input type="text" class="form-control" id="fedit-birthdate" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" />
                 </div>
                 <div class="mb-3">
                   <label for="email" class="form-label">Email:</label>
-                  <input type="email" class="form-control" id="fedit-email" placeholder="johnsmith@gmail.com"  />
+                  <input type="email" class="form-control" id="fedit-email" placeholder="johnsmith@gmail.com" />
                 </div>
                 <button type="submit" id="submitEdit" class="btn btn-primary">Submit</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -107,19 +117,18 @@
         </div>
       </div>
 
-        <table class="table" id="tableStudents">
-          <thead>
-            <th scope="col">Name</th>
-            <th scope="col">GR</th>
-            <th scope="col">Birthdate</th>
-            <th scope="col">Email</th>
-            <th scope="col">Action</th>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-      </div>
+      <table class="table" id="tableStudents">
+        <thead>
+          <th scope="col">Name</th>
+          <th scope="col">GR</th>
+          <th scope="col">Birthdate</th>
+          <th scope="col">Email</th>
+          <th scope="col">Action</th>
+        </thead>
+        <tbody></tbody>
+      </table>
     </div>
+
     <script>
       const formatDate = () => {
         document.querySelector(".datepicker-div").datepicker({
