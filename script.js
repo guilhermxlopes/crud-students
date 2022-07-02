@@ -103,6 +103,7 @@ const deleteStudent = (index) => {
   const dataStudent = readStudent();
   dataStudent.splice(index, 1);
   setLocalStorage(dataStudent);
+  location.reload();
 };
 
 const editGet = (event) => {
