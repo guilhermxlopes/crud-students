@@ -99,10 +99,18 @@ const editStudent = (index) => {
   fillFieldsFromStudent(student);
 };
 
+const deleteStudent = (index) => {
+  const dataStudent = readStudent();
+  dataStudent.splice(index, 1);
+  setLocalStorage(dataStudent);
+};
+
 const editGet = (event) => {
   const [action, index] = event.target.id.split("-");
   if (action == "edit") {
     editStudent(index);
+  } else {
+    deleteStudent(index);
   }
 };
 
